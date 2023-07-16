@@ -17,7 +17,8 @@ import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class ProfileFragment : BaseFragment() {
+class
+ProfileFragment : BaseFragment() {
     private lateinit var binding: FragmentProfileBinding
 
     @Inject
