@@ -18,6 +18,6 @@ class TokenManager @Inject constructor(@ApplicationContext context: Context) {
     }
 
     fun getToken(): String? {
-        return prefs.getString(USER_TOKEN, "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")
+        return prefs.getString(USER_TOKEN, "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")
     }
 }
