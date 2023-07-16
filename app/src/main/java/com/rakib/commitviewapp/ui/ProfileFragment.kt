@@ -40,27 +40,32 @@ ProfileFragment : BaseFragment() {
     override fun configUi() {
         val userName = arguments?.getString("username", "rakibcse99")
 
-        viewModel.getUserProfile(userName ?:"rakibcse99")
+        viewModel.getUserProfile(userName ?: "rakibcse99")
 
-        viewModel.userModelResult.observe(this){
-            when(it.status){
+        viewModel.userModelResult.observe(this) {
+            when (it.status) {
                 Status.SUCCESS -> {
-                    it.data?.let {userModel->
+                    it.data?.let { userModel ->
                         binding.textName.text = userModel.name
                         binding.usernameTextView.text = "@${userModel.login}"
-                        Glide.with(this).load(userModel.avatar_url).into( binding.profileImageView);
-                        binding.bioTextView.text = "Bio: ${userModel.bio}"
+                        Glide.with(this).load(userModel.avatar_url).into(binding.profileImageView)
+                        if (userModel.bio == null) {
+                            binding.bioTextView.text = "Bio :"
+                        } else {
+
+                            binding.bioTextView.text = "Bio: ${userModel.bio}"
+                        }
                         binding.publicReposTextview.text = "Public Repos: ${userModel.public_repos}"
                         binding.publicGistsTextview.text = "Public Gists: ${userModel.public_gists}"
 
                     }
-                 }
+                }
 
                 Status.LOADING -> {}
                 Status.ERROR -> {
                     val errMsg = it.error?.message ?: ""
                     toast(errMsg)
-                 }
+                }
             }
 
         }
