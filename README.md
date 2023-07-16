@@ -1,3 +1,8 @@
+# 🔖 # Github Commits View Apps
+<h1>Apps Screen<h1>
+ <img src="https://github.com/rakibcse99/CommitViewApps/blob/master/app/src/main/res/drawable/appimage1.jpg?raw=true" width="25%"/>
+ <img src="https://github.com/rakibcse99/CommitViewApps/blob/master/app/src/main/res/drawable/appnage2.jpg?raw=true" width="25%"/>
+
 ## Built With 🛠
 
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android
