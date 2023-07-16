@@ -5,7 +5,7 @@ import androidx.paging.PagingConfig
 import com.rakib.commitviewapp.base.ErrorResponse
 import com.rakib.commitviewapp.base.Resource
 import com.rakib.commitviewapp.data.source.CommitViewApi
-import com.rakib.commitviewapp.paging.ProductPagingSource
+import com.rakib.commitviewapp.paging.CommitViewPagingSource
 import com.rakib.commitviewapp.repository.model.UserModel
 import javax.inject.Inject
 
@@ -17,7 +17,7 @@ class CommitViewRepository @Inject constructor(private val apiService: CommitVie
             initialLoadSize = 20
         ),
     ) {
-        ProductPagingSource(apiService)
+        CommitViewPagingSource(apiService)
     }.flow
 
 
