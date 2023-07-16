@@ -6,6 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
+import com.rakib.commitviewapp.R
 import com.rakib.commitviewapp.databinding.ItemCommitBinding
 import com.rakib.commitviewapp.repository.model.CommitModelItem
 import com.rakib.commitviewapp.utils.SimpleCallback
@@ -38,11 +39,21 @@ class CommitViewAdapter @Inject constructor() :
                 .load(it.committer.avatar_url)
                 .centerCrop()
                 .into(holder.binding.imgProfile)
-//            Glide
-//                .with(holder.binding.root)
-//                .load(it.committer.events_url)
-//                .centerCrop()
-//                .into(holder.binding.imageMark);
+            if (it.commit.author.name == "github-actions") {
+                Glide
+                    .with(holder.binding.root)
+                    .load(R.drawable.ic_wrong)
+                    .centerCrop()
+                    .into(holder.binding.imageMark);
+
+            } else {
+                Glide
+                    .with(holder.binding.root)
+                    .load(R.drawable.ic_right)
+                    .centerCrop()
+                    .into(holder.binding.imageMark);
+            }
+
             holder.binding.root.setOnClickListener { view -> clickListener?.callback(it) }
 
 
